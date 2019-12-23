@@ -1,0 +1,51 @@
+ZSH_THEME="agnoster"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export EDITOR='nvim'
+
+# Kostja Edits:
+eval "$(rbenv init -)"
+alias rake='bundle exec rake'
+alias rk='bundle exec rake'
+alias rails='bundle exec rails'
+alias rs='bundle exec rails server'
+alias rc='bundle exec rails console'
+alias r='bundle exec rails'
+alias g='git'
+alias gap='git add -p'
+alias gcm='git commit -m'
+alias gps='git push origin'
+alias gpl='git pull origin'
+alias rspec='bundle exec rspec'
+alias dc='docker-compose'
+alias d='docker'
+alias sidekiq='bundle exec sidekiq'
+alias rubocop='bundle exec rubocop'
+alias bi='bundle install'
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
+export PATH="$PWD/bin:$PATH"
+
+
+function countdown(){
+  date1=$((`date +%s` + $1)); 
+  while [ "$date1" -ge `date +%s` ]; do 
+    sleep 1
+  done
+}
+
+alias sitdown='(countdown 300 && say "Hey Konstantin, du kannst dich nun setzen") &!'
+alias standup='(countdown 3300 && say "Hey Konstantin, du musst jetzt aufstehen") &!'
+alias project='tmuxinator '
+alias cat='bat'
+alias ls='lsd'
+alias gst='git status -u'
+alias note='nvim ~/Documents/Notes/$(date +"%Y%m%d_notes.md")'
+
+bindkey -v
