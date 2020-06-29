@@ -33,7 +33,7 @@ set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set hlsearch                      " activate search result highlighting
-set wildignore+=tags,doc,tmp,log
+set wildignore+=tags,doc,tmp,log,node_modules
 set number relativenumber
 set nocompatible      " Do not be compatible with Vi - be iMproved
 set noswapfile
@@ -42,7 +42,7 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set mouse=a
-set tags=./tags;
+"set tags=./tags;
 autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufWritePre *.yml :%s/\s\+$//e
 
@@ -56,6 +56,7 @@ nnoremap <Leader>- :bp<CR>
 nnoremap <Leader>= :bn<CR>
 nnoremap <Leader>a :Ag!<Space>
 nnoremap <Leader>e :ls<cr>:b<space>
+nnoremap <Leader>bd :bufdo bd<CR><CR>
 
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
